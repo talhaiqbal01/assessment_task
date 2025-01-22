@@ -12,9 +12,12 @@ class TTexts {
   static const String done = 'Done';
   static const String submit = 'Submit';
   static const String appName = 'Assessment Task';
+  static const String tryAgain = 'Try again';
 
   // -- Home Texts
   static const String datingList = 'Dating list';
+  static const String date = 'Date';
+  static const String location = 'Location';
 
   // -- Search Texts
   static const String search = 'Search';

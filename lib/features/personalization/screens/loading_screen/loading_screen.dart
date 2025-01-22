@@ -24,15 +24,22 @@ class _LoadingScreenState extends State<LoadingScreen> {
 
   void redirectUser() async {
     FlutterNativeSplash.remove();
-    context.go(TRoutes.homeScreen);
+    await Future.delayed(Duration(seconds: 3));
+    if (mounted) {
+      navigateToHomeScreen();
+    }
+  }
+
+  void navigateToHomeScreen() {
+    if (mounted) {
+      context.go(TRoutes.homeScreen);
+    }
   }
 
   @override
   Widget build(BuildContext context) {
     THelperFunctions.setSystemUIOverlay(context);
 
-    return Scaffold(
-      body: Center(child: TLoading()),
-    );
+    return Scaffold(body: Center(child: TLoading()));
   }
 }

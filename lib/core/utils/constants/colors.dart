@@ -12,7 +12,7 @@ class TColors {
   static const Color tertiary = Colors.blueGrey;
 
   //-- Background Colors
-  static const Color lightBackground = Color(0xfff3fbe8);
+  static const Color lightBackground = Color(0xffffffff);
 
   static const Color darkBackground = Color(0xff1e1e1e);
 
@@ -166,25 +166,25 @@ class TColors {
 
 
   //-- TextFormField Colors
-  static Color lightTextFieldFilledColor = white;
-  static const Color lightPrefixIcon = darkerGrey;
-  static const Color lightSuffixIcon = darkerGrey;
-  static const Color lightLabel = darkerGrey;
+  static Color lightTextFieldFilledColor = lightBackground;
+  static const Color lightPrefixIcon = black;
+  static const Color lightSuffixIcon = black;
+  static const Color lightLabel = black;
   static const Color lightHint = darkerGrey;
   static Color lightFloatingLabel = lightLabel.withValues(alpha: 0.8);
-  static const Color lightTextFieldBorder = darkerGrey;
-  static const Color lightTextFieldEnableBorder = darkerGrey;
-  static const Color lightTextFieldFocusBorder = black;
+  static const Color lightTextFieldBorder = lightBackground;
+  static const Color lightTextFieldEnableBorder = lightBackground;
+  static const Color lightTextFieldFocusBorder = lightBackground;
 
-  static Color darkTextFieldFilledColor = black;
-  static const Color darkPrefixIcon = grey;
-  static const Color darkSuffixIcon = grey;
-  static const Color darkLabel = grey;
+  static Color darkTextFieldFilledColor = darkBackground;
+  static const Color darkPrefixIcon = white;
+  static const Color darkSuffixIcon = white;
+  static const Color darkLabel = white;
   static const Color darkHint = grey;
   static Color darkFloatingLabel = darkLabel.withValues(alpha: 0.8);
-  static const Color darkTextFieldBorder = grey;
-  static const Color darkTextFieldEnableBorder = grey;
-  static const Color darkTextFieldFocusBorder = white;
+  static const Color darkTextFieldBorder = darkBackground;
+  static const Color darkTextFieldEnableBorder = darkBackground;
+  static const Color darkTextFieldFocusBorder = darkBackground;
 
   //-- Tab Bar Colors
   static const Color lightTabBarLabel = black;

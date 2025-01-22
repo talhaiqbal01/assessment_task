@@ -6,6 +6,14 @@ class TIcons {
 
   // -- GLOBAL Icons
   static const IconData backButton = Icons.arrow_back_rounded;
+  static const IconData menu = Icons.more_horiz;
+  static const IconData user = Icons.person_rounded;
+
+  // -- Home Icons
+  static const IconData calender = Icons.calendar_today_rounded;
+  static const IconData message = Icons.message_rounded;
+  static const IconData phone = Icons.phone_rounded;
+  static const IconData location = Icons.location_on_outlined;
 
   // -- Search Icons
   static const IconData search = Icons.search_rounded;

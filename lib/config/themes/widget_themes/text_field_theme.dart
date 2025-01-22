@@ -8,14 +8,14 @@ class TTextFormFieldTheme {
 
   /// Customizable Light [TextFormField] Theme
   static InputDecorationTheme lightInputDecorationTheme = InputDecorationTheme(
-    filled: false,
+    filled: true,
     fillColor: TColors.lightTextFieldFilledColor,
     errorMaxLines: 3,
     iconColor: TColors.lightIcon,
     prefixIconColor: TColors.lightPrefixIcon,
     suffixIconColor: TColors.lightSuffixIcon,
     labelStyle: const TextStyle(fontSize: TSizes.fontSizeMd, color: TColors.lightLabel),
-    hintStyle: const TextStyle(fontSize: TSizes.fontSizeMd, color: TColors.lightLabel),
+    hintStyle: const TextStyle(fontSize: TSizes.fontSizeMd, color: TColors.lightHint, fontWeight: FontWeight.normal),
     helperStyle: const TextStyle(fontSize: TSizes.fontSizeSm, color: TColors.lightLabel),
     errorStyle: const TextStyle(fontStyle: FontStyle.normal),
     floatingLabelStyle: TextStyle(color: TColors.lightFloatingLabel),
@@ -43,13 +43,14 @@ class TTextFormFieldTheme {
 
   /// Customizable Dark [TextFormField] Theme
   static InputDecorationTheme darkInputDecorationTheme = InputDecorationTheme(
+    filled: true,
     fillColor: TColors.darkTextFieldFilledColor,
     errorMaxLines: 3,
     iconColor: TColors.darkIcon,
     prefixIconColor: TColors.darkPrefixIcon,
     suffixIconColor: TColors.darkSuffixIcon,
     labelStyle: const TextStyle(fontSize: TSizes.fontSizeMd, color: TColors.darkLabel),
-    hintStyle: const TextStyle(fontSize: TSizes.fontSizeSm, color: TColors.darkHint),
+    hintStyle: const TextStyle(fontSize: TSizes.fontSizeSm, color: TColors.darkHint, fontWeight: FontWeight.normal),
     helperStyle: const TextStyle(fontSize: TSizes.fontSizeSm, color: TColors.darkLabel),
     errorStyle: const TextStyle(fontStyle: FontStyle.normal),
     floatingLabelStyle: TextStyle(color: TColors.darkFloatingLabel),

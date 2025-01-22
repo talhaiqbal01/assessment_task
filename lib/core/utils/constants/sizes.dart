@@ -50,7 +50,7 @@ class TSizes {
   static const double dividerHeight = 1.0;
 
   // Input field
-  static const double inputFieldRadius = 12.0;
+  static const double inputFieldRadius = 30.0;
   static const double inputFieldSideWidth = 1.0;
   static const double inputFieldSelectedSideWidth = 1.5;
   static const double spaceBtwInputFields = 16.0;
