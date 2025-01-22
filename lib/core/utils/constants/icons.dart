@@ -14,6 +14,7 @@ class TIcons {
   static const IconData message = Icons.message_rounded;
   static const IconData phone = Icons.phone_rounded;
   static const IconData location = Icons.location_on_outlined;
+  static const IconData connectivityBadge = Icons.circle_rounded;
 
   // -- Search Icons
   static const IconData search = Icons.search_rounded;

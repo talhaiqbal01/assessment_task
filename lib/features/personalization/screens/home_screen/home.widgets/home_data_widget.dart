@@ -84,6 +84,8 @@ class _HomeDataWidgetState extends State<HomeDataWidget> {
                 Gap(TSizes.spaceBtwItems),
 
                 const TLoading(),
+
+                Gap(TSizes.spaceBtwItems),
               ],
             ),
           ),

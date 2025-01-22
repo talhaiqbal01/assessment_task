@@ -2,9 +2,11 @@ import 'package:assessment_task/core/utils/constants/text_string.dart';
 import 'package:assessment_task/core/utils/device/device_utility.dart';
 import 'package:assessment_task/core/utils/formatter/formatter.dart';
 import 'package:assessment_task/features/personalization/models/user_model/user_model.dart';
-import 'package:cached_network_image/cached_network_image.dart';
+import 'package:assessment_task/features/personalization/providers/home_provider/home_provider.dart';
+import 'package:assessment_task/features/personalization/widgets/user_avatar/user_avatar.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
+import 'package:provider/provider.dart';
 import '../../../../../core/utils/constants/colors.dart';
 import '../../../../../core/utils/constants/icons.dart';
 import '../../../../../core/utils/constants/sizes.dart';
@@ -20,6 +22,7 @@ class TAvailableToDateUserListTile extends StatelessWidget {
     final screenWidth = TDeviceUtils.screenWidth(context);
     final textTheme = Theme.of(context).textTheme;
     final isDark = THelperFunctions.isDarkMode(context);
+    final homeProvider = context.watch<HomeProvider>();
 
     return Container(
       width: double.infinity,
@@ -53,20 +56,7 @@ class TAvailableToDateUserListTile extends StatelessWidget {
             children: [
               Row(
                 children: [
-                  CircleAvatar(
-                    backgroundColor: isDark ? TColors.darkBackground : TColors.lightBackground,
-                    child: CachedNetworkImage(
-                      imageUrl: userData.pictureThumbnail,
-                      imageBuilder: (context, url) => Container(
-                        decoration: BoxDecoration(
-                          shape: BoxShape.circle,
-                          image: DecorationImage(image: url, fit: BoxFit.cover),
-                        ),
-                      ),
-                      placeholder: (context, url) => Icon(TIcons.user, color: isDark ? TColors.darkIcon : TColors.lightIcon),
-                      errorWidget: (context, url, error) => Icon(TIcons.user, color: isDark ? TColors.darkIcon : TColors.lightIcon),
-                    ),
-                  ),
+                  TUserAvatar(imageUrl: userData.pictureThumbnail),
 
                   Gap(TSizes.sm),
 
@@ -75,9 +65,12 @@ class TAvailableToDateUserListTile extends StatelessWidget {
                     children: [
                       Text('${userData.nameFirst} - ${userData.age}', style: textTheme.titleMedium),
 
-                      Gap(TSizes.sm),
+                      Gap(TSizes.xs),
 
-                      Text('3 km away from you', style: textTheme.labelSmall!.copyWith(color: TColors.grey)),
+                      SizedBox(
+                        width: screenWidth * 0.3,
+                        child: Text('${homeProvider.calculateDistanceBtwUsers(userData.locationGeoPoint)} away from your', style: textTheme.labelSmall!.copyWith(color: TColors.grey)),
+                      ),
                     ],
                   ),
                 ],
@@ -85,9 +78,9 @@ class TAvailableToDateUserListTile extends StatelessWidget {
 
               Row(
                 children: [
-                  IconButton(onPressed: () {} , icon: Icon(TIcons.message, color: TColors.primary)),
+                  IconButton(onPressed: () => homeProvider.sendMessage(userData.phoneNumber), icon: Icon(TIcons.message, color: TColors.primary)),
 
-                  IconButton(onPressed: () {} , icon: Icon(TIcons.phone, color: TColors.primary)),
+                  IconButton(onPressed: () => homeProvider.callUser(userData.phoneNumber), icon: Icon(TIcons.phone, color: TColors.primary)),
                 ],
               ),
             ],
@@ -113,15 +106,15 @@ class TAvailableToDateUserListTile extends StatelessWidget {
 
                   Gap(TSizes.md),
 
-                  Text(TFormatter.formatDateTime(userData.registeredDate), style: textTheme.bodySmall),
+                  Text(TFormatter.formatDateTime(userData.registeredDate), style: textTheme.bodyMedium),
 
                   Gap(TSizes.md),
 
-                  Text(TFormatter.getTimeFromDateTime(userData.registeredDate), style: textTheme.bodySmall),
+                  Text(TFormatter.getTimeFromDateTime(userData.registeredDate), style: textTheme.bodyMedium),
                 ],
               ),
 
-              Container(height: 70.0, width: 1.0,color: TColors.grey),
+              Container(height: 70.0, width: 1.0,color: isDark ? TColors.darkGrey : TColors.grey),
 
 
               Column(
@@ -141,7 +134,7 @@ class TAvailableToDateUserListTile extends StatelessWidget {
 
                   SizedBox(
                     width: screenWidth * 0.3,
-                    child: Flexible(child: Text('${userData.state}, ${userData.city}', style: textTheme.bodySmall)),
+                    child: Text('${userData.state}, ${userData.city}', style: textTheme.bodySmall),
                   ),
                 ],
               ),

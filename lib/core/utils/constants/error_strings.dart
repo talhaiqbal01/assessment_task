@@ -6,4 +6,5 @@ class TErrors {
 
   // -- GLOBAL Errors
   static const String unknownError = 'An unknown error occurred...\nTry again!';
+  static const String noDataAvailable = 'No data available...\nTry again!';
 }

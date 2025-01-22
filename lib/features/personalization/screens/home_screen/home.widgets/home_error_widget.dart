@@ -4,6 +4,8 @@ import 'package:assessment_task/core/utils/constants/sizes.dart';
 import 'package:assessment_task/core/utils/constants/text_string.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
+import 'package:provider/provider.dart';
+import '../../../providers/home_provider/home_provider.dart';
 
 class HomeErrorWidget extends StatelessWidget {
   const HomeErrorWidget({super.key});
@@ -11,6 +13,7 @@ class HomeErrorWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final textTheme = Theme.of(context).textTheme;
+    final homeProvider = context.watch<HomeProvider>();
 
     return Padding(
       padding: EdgeInsets.all(TSizes.md),
@@ -23,7 +26,7 @@ class HomeErrorWidget extends StatelessWidget {
 
             Gap(TSizes.spaceBtwSections),
 
-            TElevatedButton(onPress: () {}, text: TTexts.tryAgain),
+            TElevatedButton(onPress: homeProvider.fetchUsers, text: TTexts.tryAgain),
           ],
         ),
       ),
